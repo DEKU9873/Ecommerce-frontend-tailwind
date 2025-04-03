@@ -1,0 +1,16 @@
+/* google font  */
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');
+
+/* tailwind css */
+@import "tailwindcss" ;
+@plugin "daisyui";
+
+/* dark mode */
+@custom-variant dark (&:where(.dark, .dark *));
+
+
+@theme {
+    --font-inter: "Cairo", sans-serif;
+}
+     
