@@ -2,7 +2,7 @@ import React from "react";
 import image from "../../assets/rem.png";
 const ProudctsCardSearch = () => {
   return (
-    <div className="flex p-2">
+    <div className="flex p-2 hover:bg-gray-200 cursor-pointer">
       <img src={image} className="w-[150px] h-[150px] object-cover p-2" />
       <div>
         <div className="text-xl font-inter font-semibold">Name of Product</div>
