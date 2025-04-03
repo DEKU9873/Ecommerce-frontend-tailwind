@@ -16,7 +16,7 @@ const DropdownLinks = [
 
 const NavbarMenu = () => {
   return (
-    <div className="hidden lg:flex justify-center items-center">
+    <div dir="rtl" className="hidden lg:flex justify-center items-center bg-gray-400">
       {/* Desktop Menu */}
       <div className="">
         <ul className="flex items-center gap-[30px] ">
@@ -24,7 +24,7 @@ const NavbarMenu = () => {
             <li key={data.id}>
               <a
                 href={data.link}
-                className="inline-block px-3 py-2 font-medium font-inter text-xl  text-gray-700 hover:text-primary-500 dark:text-gray-300 dark:hover:text-white transition-all duration-200 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-primary-500 after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full"
+                className="inline-block px-3 py-2 font-medium font-inter text-md  text-gray-700 hover:text-primary-500 dark:text-gray-300 dark:hover:text-white transition-all duration-200 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-primary-500 after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full"
               >
                 {data.name}
               </a>
@@ -35,7 +35,7 @@ const NavbarMenu = () => {
             <a
               href="#"
               className="flex items-center gap-[2px] font-inter font-medium
-                       text-xl  text-gray-700 hover:text-primary-500 dark:text-gray-300 dark:hover:text-white py-2"
+                       text-md  text-gray-700 hover:text-primary-500 dark:text-gray-300 dark:hover:text-white py-2"
             >
               روابط سريعة{" "}
               <span>
@@ -57,7 +57,7 @@ const NavbarMenu = () => {
                     <a
                       className="text-gray-700 font-inter hover:text-black
                                      dark:hover:text-white duration-200 inline-block 
-                                     w-full p-2 hover:bg-primary/20 rounded-md font-semibold"
+                                     w-full p-2 hover:bg-primary/20 rounded-md "
                       href={data.link}
                     >
                       {" "}

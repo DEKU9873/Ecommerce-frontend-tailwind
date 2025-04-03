@@ -6,7 +6,7 @@ const ProductCard = () => {
   return (
     <div className='bg-white shadow-md rounded-lg p-5 flex flex-col '>
         {/* image */}
-        <img src={image} className='w-full h-[250px] object-cover rounded-lg' />
+        <img src={image} className='w-full h-[180px] object-cover rounded-lg' />
         
         {/* details */}
         <div className='flex justify-between p-4'>
@@ -20,7 +20,7 @@ const ProductCard = () => {
 
         {/* description */}
         <div className='text-gray-500 text-sm p-4 text-justify '>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur aperiam porro non vero sed nam nobis rerum harum vel .
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
         </div>
 
         {/* rate and add cart */}

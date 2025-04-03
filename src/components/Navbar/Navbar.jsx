@@ -7,6 +7,7 @@ import { FaCaretDown } from "react-icons/fa";
 import { IoLanguageSharp } from "react-icons/io5";
 
 import { useTranslation } from "react-i18next";
+import SearchProducts from "../Products/SearchProducts";
 
 const Menulinks = [
   { id: 1, name: "الرئيسية", link: "/#" },
@@ -24,6 +25,8 @@ const DropdownLinks = [
 const Navbar = () => {
   const { t, i18n } = useTranslation();
   const [local, setLocal] = useState("ar");
+
+  const [searchTerm, setSearchTerm] = useState("");
 
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -47,7 +50,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className=" z-50 transition-all duration-300 py-2 dark:bg-gray-800 bg-orange-300 ">
+    <div className=" z-50 transition-all duration-300 py-2 dark:bg-gray-800 bg-orange-200 ">
       <div className="mx-auto px-4">
         <div className="flex justify-between items-center">
           {/* Logo */}
@@ -71,8 +74,8 @@ const Navbar = () => {
                   </a>
                 </li>
               ))} */}
-              {/* Dropdown */}
-              {/* <li className="relative cursor-pointer group">
+          {/* Dropdown */}
+          {/* <li className="relative cursor-pointer group">
                 <a
                   href="#"
                   className="flex items-center gap-[2px] font-inter font-medium
@@ -86,8 +89,8 @@ const Navbar = () => {
                     />
                   </span>
                 </a> */}
-                {/* Dropdown Links */}
-                {/* <div
+          {/* Dropdown Links */}
+          {/* <div
                   className="absolute z-[9999] hidden group-hover:block w-[200px]
                   rounded-md bg-white shadow-md dark:bg-gray-900 p-2 text-black 
                   dark:text-white "
@@ -113,18 +116,23 @@ const Navbar = () => {
           </div> */}
 
           {/* Right Section */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 relative">
             {/* Search */}
             <div className="relative group hidden lg:block">
               <input
+              dir="rtl"
                 type="text"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="ابحث هنا..."
-                className="w-40 sm:w-64 py-2 px-4 pr-10 rounded-full border bg-white border-gray-300 focus:outline-none focus:ring-1   transition-all duration-300 dark:bg-gray-400 dark:border-gray-700 dark:text-white "
+                className="w-40 sm:w-[700px] py-2 px-4 pr-10 rounded-full border bg-white border-gray-300 focus:outline-none focus:ring-1 transition-all duration-300 dark:bg-gray-400 dark:border-gray-700 dark:text-white"
               />
               <IoMdSearch className="text-xl text-gray-600 group-hover:text-primary-500 dark:text-white absolute top-1/2 -translate-y-1/2 right-3 duration-200 cursor-pointer" />
-              {/* <div className="absolute w-[600px] h-[300px] top-[200px] -translate-y-1/2 right-2 z-999 rounded-2xl  bg-red-500 text-white  flex items-center justify-center text-xs">
 
-              </div> */}
+              {/* عرض SearchProducts فقط إذا كان هناك إدخال */}
+              <div className="absolute z-9999">
+              {searchTerm.length > 0 && <SearchProducts />}
+              </div>
             </div>
 
             {/* Language */}
