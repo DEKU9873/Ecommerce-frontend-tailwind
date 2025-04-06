@@ -4,10 +4,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ProductDetails from "./Pages/ProductDetails";
 import Navbar from "./components/Navbar/Navbar";
 import NavbarMenu from "./components/Navbar/NavbarMenu";
+import ScrollToTop from "./components/ScrollToTop.JSX";
 
 const App = () => {
   return (
     <BrowserRouter>
+    <ScrollToTop/>
       <Navbar />
       <NavbarMenu/>
 
