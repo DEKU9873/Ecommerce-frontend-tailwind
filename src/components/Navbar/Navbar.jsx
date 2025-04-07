@@ -5,9 +5,11 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import DarkMode from "./DarkMode";
 import { FaCaretDown } from "react-icons/fa";
 import { IoLanguageSharp } from "react-icons/io5";
+import { CgLogIn } from "react-icons/cg";
 
 import { useTranslation } from "react-i18next";
 import SearchProducts from "../Products/SearchProducts";
+import { useNavigate } from 'react-router-dom';
 
 const Menulinks = [
   { id: 1, name: "الرئيسية", link: "/#" },
@@ -23,6 +25,7 @@ const DropdownLinks = [
 ];
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const { t, i18n } = useTranslation();
   const [local, setLocal] = useState("ar");
 
@@ -35,6 +38,10 @@ const Navbar = () => {
     setActiveDropdown(activeDropdown === id ? null : id);
   };
 
+  const handleLogin = () => {
+    navigate('/login');
+  };
+
   const hadleLanguageChange = () => {
     if (local === "en") {
       setLocal("ar");
@@ -44,6 +51,8 @@ const Navbar = () => {
       i18n.changeLanguage("en");
     }
   };
+
+
 
   useEffect(() => {
     i18n.changeLanguage(local);
@@ -61,66 +70,12 @@ const Navbar = () => {
             {t("hello")}{" "}
           </a>
 
-          {/* Desktop Menu */}
-          {/* <div className="hidden lg:block">
-            <ul className="flex items-center gap-6">
-              {Menulinks.map((data) => (
-                <li key={data.id}>
-                  <a
-                    href={data.link}
-                    className="inline-block px-3 py-2 font-medium font-inter text-lg  text-gray-700 hover:text-primary-500 dark:text-gray-300 dark:hover:text-white transition-all duration-200 relative after:content-[''] after:absolute after:w-0 after:h-0.5 after:bg-primary-500 after:left-0 after:-bottom-1 after:transition-all after:duration-300 hover:after:w-full"
-                  >
-                    {data.name}
-                  </a>
-                </li>
-              ))} */}
-          {/* Dropdown */}
-          {/* <li className="relative cursor-pointer group">
-                <a
-                  href="#"
-                  className="flex items-center gap-[2px] font-inter font-medium
-                 text-lg  text-gray-700 hover:text-primary-500 dark:text-gray-300 dark:hover:text-white py-2"
-                >
-                  روابط سريعة{" "}
-                  <span>
-                    <FaCaretDown
-                      className="group-hover:rotate-180 
-                    duration-300"
-                    />
-                  </span>
-                </a> */}
-          {/* Dropdown Links */}
-          {/* <div
-                  className="absolute z-[9999] hidden group-hover:block w-[200px]
-                  rounded-md bg-white shadow-md dark:bg-gray-900 p-2 text-black 
-                  dark:text-white "
-                >
-                  <ul className="space-y-2">
-                    {DropdownLinks.map((data) => (
-                      <li>
-                        <a
-                          className="text-gray-700 font-inter hover:text-black
-                               dark:hover:text-white duration-200 inline-block 
-                               w-full p-2 hover:bg-primary/20 rounded-md font-semibold"
-                          href={data.link}
-                        >
-                          {" "}
-                          {data.name}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </li>
-            </ul>
-          </div> */}
-
           {/* Right Section */}
           <div className="flex items-center gap-4 relative">
             {/* Search */}
             <div className="relative group hidden lg:block">
               <input
-              dir="rtl"
+                dir="rtl"
                 type="text"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
@@ -131,12 +86,17 @@ const Navbar = () => {
 
               {/* عرض SearchProducts فقط إذا كان هناك إدخال */}
               <div className="absolute z-9999">
-              {searchTerm.length > 0 && <SearchProducts />}
+                {searchTerm.length > 0 && <SearchProducts />}
               </div>
             </div>
 
+            {/* login */}
+            <button onClick={handleLogin} className="hidden lg:block relative p-3 cursor-pointer ">
+              <CgLogIn className="text-2xl text-gray-600 dark:text-gray-400" />
+            </button>
+
             {/* Language */}
-            <button onClick={hadleLanguageChange} className="relative p-3">
+            <button onClick={hadleLanguageChange} className="relative p-3 cursor-pointer">
               <IoLanguageSharp className="text-2xl text-gray-600 dark:text-gray-400" />
             </button>
 
@@ -245,6 +205,10 @@ const Navbar = () => {
             </ul>
           </div>
         </div>
+        <button onClick={handleLogin} className="absolute bottom-0 left-0 p-3 bg-orange-200 w-full flex items-center justify-center gap-2 rounded-md shadow hover:bg-orange-400 transition cursor-pointer">
+          <span>تسجيل الدخول</span>
+          <CgLogIn className="text-2xl text-gray-600 dark:text-gray-400" />
+        </button>
       </div>
 
       {/* Overlay */}
