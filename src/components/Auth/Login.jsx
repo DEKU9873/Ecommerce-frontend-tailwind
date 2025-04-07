@@ -2,9 +2,19 @@ import React from "react";
 import { FaUserAlt, FaLock, FaSignInAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
 
+  const navigate = useNavigate();
+
+  const handaleRegister = () => {
+    navigate("/register");
+  };
+
+  const handaleForgotPassword = () => {
+    alert("هل تريد استعادة كلمة المرور؟");
+  };
 
   // const handleKeyDown = (e) => {
   //   if (e.key === "Enter") {
@@ -83,20 +93,20 @@ const Login = () => {
 
         <div className="text-gray-600 text-sm text-center mt-8">
           <p className="mt-2">
-            <a
-              href="#"
+            <div 
+              onClick ={handaleRegister}
               className="text-blue-500 hover:text-blue-600 font-medium hover:underline"
             >
               ليس لديك حساب
-            </a>
+            </div>
           </p>
           <p className="mt-2">
-            <a
-              href="#"
+            <div
+              onClick = {handaleForgotPassword}
               className="text-blue-500 hover:text-blue-600 font-medium hover:underline"
             >
               هل نسيت كلمة المرور؟
-            </a>
+            </div>
           </p>
         </div>
       </div>

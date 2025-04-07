@@ -7,7 +7,7 @@ import NavbarMenu from "./components/Navbar/NavbarMenu";
 import ScrollToTop from "./components/ScrollToTop.JSX";
 import Login from "./components/Auth/Login";
 import Register from "./components/Auth/Register";
-import AdminPage from "./Pages/AdminPage";
+import AdminAllProductsPage from "./Pages/AdminAllProductsPage";
 
 const AppContent = () => {
   const location = useLocation();
@@ -24,7 +24,7 @@ const AppContent = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/product/:id" element={<ProductDetails />} />
-        <Route path="/adminAllProducts" element={<AdminPage />} />
+        <Route path="/adminAllProducts" element={<AdminAllProductsPage />} />
       </Routes>
     </>
   );
