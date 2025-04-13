@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaTag, FaTags, FaBoxOpen, FaShoppingBag, FaTrademark, FaUserAlt } from 'react-icons/fa';
+import { Link } from 'react-router';
 
 const AdminSidebar = () => {
   return (
@@ -19,11 +20,11 @@ const AdminSidebar = () => {
           <ul className="pr-6 mt-2 space-y-1">
             <li className="p-2 rounded-md hover:bg-orange-300 transition-all flex items-center">
               <FaShoppingBag className="ml-2" />
-              <span>كل المنتجات</span>
+              <Link to="/adminAllProducts">كل المنتجات</Link>
             </li>
             <li className="p-2 rounded-md hover:bg-orange-300 transition-all flex items-center">
               <FaShoppingBag className="ml-2" />
-              <span>اضافة منتج</span>
+              <Link to="/adminAddProduct">اضافة منتج</Link>
             </li>
           </ul>
         </li>

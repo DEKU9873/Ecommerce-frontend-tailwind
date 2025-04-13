@@ -9,25 +9,26 @@ import { CgLogIn } from "react-icons/cg";
 
 import { useTranslation } from "react-i18next";
 import SearchProducts from "../Products/SearchProducts";
-import { useNavigate } from 'react-router-dom';
-
-const Menulinks = [
-  { id: 1, name: "الرئيسية", link: "/#" },
-  { id: 2, name: "المتجر", link: "/#shop" },
-  { id: 3, name: "من نحن", link: "/#about" },
-  { id: 4, name: "المدونة", link: "/#blog" },
-];
-
-const DropdownLinks = [
-  { id: 1, name: "المنتجات الرائجة", link: "/#" },
-  { id: 2, name: "الأكثر مبيعاً", link: "/#" },
-  { id: 3, name: "الأعلى تقييماً", link: "/#" },
-];
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
-  const navigate = useNavigate();
   const { t, i18n } = useTranslation();
   const [local, setLocal] = useState("ar");
+
+  const Menulinks = [
+    { id: 1, name: t("navbar.home"), link: "/#" },
+    { id: 2, name: t("navbar.shop"), link: "/#shop" },
+    { id: 3, name: t("navbar.about"), link: "/#about" },
+    { id: 4, name: t("navbar.blog"), link: "/#blog" },
+  ];
+
+  const DropdownLinks = [
+    { id: 1, name: t("navbar.popularProducts"), link: "/#" },
+    { id: 2, name: t("navbar.bestSellers"), link: "/#" },
+    { id: 3, name: t("navbar.topRated"), link: "/#" },
+  ];
+
+  const navigate = useNavigate();
 
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -39,27 +40,30 @@ const Navbar = () => {
   };
 
   const handleLogin = () => {
-    navigate('/login');
+    navigate("/login");
   };
 
   const hadleLanguageChange = () => {
     if (local === "en") {
       setLocal("ar");
       i18n.changeLanguage("ar");
+      document.body.setAttribute("dir", "rtl");
     } else {
       setLocal("en");
       i18n.changeLanguage("en");
+      document.body.setAttribute("dir", "ltr");
     }
   };
-
-
 
   useEffect(() => {
     i18n.changeLanguage(local);
   }, []);
 
   return (
-    <div className=" z-50 transition-all duration-300 py-2 dark:bg-gray-800 bg-orange-200 ">
+    <div
+      dir="ltr"
+      className=" z-50 transition-all duration-300 py-2 dark:bg-gray-800 bg-orange-200 "
+    >
       <div className="mx-auto px-4">
         <div className="flex justify-between items-center">
           {/* Logo */}
@@ -67,7 +71,7 @@ const Navbar = () => {
             href="#"
             className="text-red-500 font-bold font-inter text-2xl sm:text-3xl"
           >
-            {t("hello")}{" "}
+            SwiftBy{" "}
           </a>
 
           {/* Right Section */}
@@ -91,12 +95,18 @@ const Navbar = () => {
             </div>
 
             {/* login */}
-            <button onClick={handleLogin} className="hidden lg:block relative p-3 cursor-pointer ">
+            <button
+              onClick={handleLogin}
+              className="hidden lg:block relative p-3 cursor-pointer "
+            >
               <CgLogIn className="text-2xl text-gray-600 dark:text-gray-400" />
             </button>
 
             {/* Language */}
-            <button onClick={hadleLanguageChange} className="relative p-3 cursor-pointer">
+            <button
+              onClick={hadleLanguageChange}
+              className="relative p-3 cursor-pointer"
+            >
               <IoLanguageSharp className="text-2xl text-gray-600 dark:text-gray-400" />
             </button>
 
@@ -133,7 +143,7 @@ const Navbar = () => {
       >
         <div className="p-5">
           <div className="flex justify-between items-center mb-8">
-            <h3 className="text-xl font-bold text-primary-500 ">URProduct</h3>
+            <h3 className="text-xl font-bold text-primary-500 ">SwiftBy</h3>
             <button
               onClick={() => setIsOpen(false)}
               className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white"
@@ -172,7 +182,7 @@ const Navbar = () => {
                   onClick={() => toggleDropdown("quick-links")}
                   className="flex justify-between items-center w-full py-3 px-2 rounded-md font-medium text-gray-700 hover:text-primary-500 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-700 transition-all duration-200"
                 >
-                  <span className="font-inter">روابط سريعة</span>
+                  <span className="font-inter">{t("navbar.quickLinks")}</span>
                   <FaCaretDown
                     className={`transition-transform duration-300 ${
                       activeDropdown === "quick-links" ? "rotate-180" : ""
@@ -205,7 +215,10 @@ const Navbar = () => {
             </ul>
           </div>
         </div>
-        <button onClick={handleLogin} className="absolute bottom-0 left-0 p-3 bg-orange-200 w-full flex items-center justify-center gap-2 rounded-md shadow hover:bg-orange-400 transition cursor-pointer">
+        <button
+          onClick={handleLogin}
+          className="absolute bottom-0 left-0 p-3 bg-orange-200 w-full flex items-center justify-center gap-2 rounded-md shadow hover:bg-orange-400 transition cursor-pointer"
+        >
           <span>تسجيل الدخول</span>
           <CgLogIn className="text-2xl text-gray-600 dark:text-gray-400" />
         </button>

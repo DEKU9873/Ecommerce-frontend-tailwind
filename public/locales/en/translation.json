@@ -1,0 +1,26 @@
+{
+  "hero": {
+    "autumnSale": "AUTUMN SALE STYLISH",
+    "womens": "WOMENS",
+    "newTrend": "New Trend",
+    "shopNow": "Shop Now",
+    "winterCollection": "WINTER COLLECTION",
+    "exclusive": "EXCLUSIVE",
+    "limitedEdition": "Limited Edition",
+    "discoverMore": "Discover More",
+    "specialOffers": "SPECIAL OFFERS",
+    "discount": "DISCOUNT",
+    "thisWeekOnly": "This Week Only",
+    "getItNow": "Get It Now"
+  },
+  "navbar": {
+    "home": "Home",
+    "shop": "Shop",
+    "about": "About Us",
+    "blog": "Blog",
+    "quickLinks": "Quick Links",
+    "popularProducts": "Popular Products",
+    "bestSellers": "Best Sellers",
+    "topRated": "Top Rated"
+  }
+}

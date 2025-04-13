@@ -1,6 +1,6 @@
 import React from 'react'
-import AdminSidebar from '../components/Admin/AdminSidebar'
-import AdminProductCard from '../components/Products/AdminProductCard'
+import AdminSidebar from '../../components/Admin/AdminSidebar'
+import AdminProductCard from '../../components/Products/AdminProductCard'
 
 const AdminAllProductsPage = () => {
   return (

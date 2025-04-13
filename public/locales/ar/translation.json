@@ -1,3 +1,27 @@
 {
-    "hello": "SwiftBuy "
+  "hero": {
+    "autumnSale": "تخفيضات الخريف الأنيقة",
+    "womens": "للنساء",
+    "newTrend": "الاتجاه الجديد",
+    "shopNow": "تسوق الآن",
+    "winterCollection": "مجموعة الشتاء",
+    "exclusive": "حصري",
+    "limitedEdition": "إصدار محدود",
+    "discoverMore": "اكتشف المزيد",
+    "specialOffers": "عروض خاصة",
+    "discount": "خصم",
+    "thisWeekOnly": "فقط هذا الأسبوع",
+    "getItNow": "احصل عليها الآن"
+  },
+
+  "navbar": {
+    "home": "الرئيسية",
+    "shop": "المتجر",
+    "about": "من نحن",
+    "blog": "المدونة",
+    "quickLinks": "روابط سريعة",
+    "popularProducts": "المنتجات الرائجة",
+    "bestSellers": "الأكثر مبيعاً",
+    "topRated": "الأعلى تقييماً"
+  }
 }
